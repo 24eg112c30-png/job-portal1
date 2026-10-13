@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f2f5fa;
+        }
+
+        header {
+            background: #173b70;
+            color: white;
+            padding: 22px;
+            text-align: center;
+        }
+
+        nav {
+            background: #102b50;
+            padding: 12px;
+            text-align: center;
+        }
+
+        nav a {
+            color: white;
+            margin: 12px;
+            text-decoration: none;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 25px auto;
+            padding: 15px;
+        }
+
+        .job {
+            background: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px #ddd;
+        }
+
+        button {
+            background: #1769d2;
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input {
+            padding: 10px;
+            width: 90%;
+            margin: 8px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 18px;
+            background: #173b70;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Job Portal</h1>
+    <p>Find Your Dream Job</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#jobs">Jobs</a>
+    <a href="#apply">Apply</a>
+</nav>
+
+<div class="container" id="home">
+    <div id="jobs"></div>
+    <h2>Welcome to Job Portal</h2>
+    <p>Find jobs and start your career with us.</p>
+
+    <h2>Available Jobs</h2>
+
+<div id="job-list">Loading jobs...</div>
+    <div class="job" id="apply">
+        <h2>Apply for a Job</h2>
+
+        <form onsubmit="submitApplication(event)">
+            <input type="text" id="name"
+                   placeholder="Enter your name" required>
+
+            <input type="email" id="email"
+                   placeholder="Enter your email" required>
+
+            <input type="text" id="position"
+                   placeholder="Job position" required>
+
+            <button type="submit">Submit Application</button>
+        </form>
+
+        <p id="message"></p>
+    </div>
+</div>
+
+<footer>
+    <p>Job Portal Project | 2026</p>
+</footer>
+
+<script>
+    function applyJob(position) {
+        document.getElementById("position").value = position;
+        document.getElementById("apply").scrollIntoView();
+    }
+
+    function submitApplication(event) {
+        event.preventDefault();
+
+        const name = document.getElementById("name").value;
+
+        document.getElementById("message").textContent =
+            "Thank you, " + name +
+            "! Your demo application is ready.";
+
+        event.target.reset();
+    }
+</script>
+
+</body>
+</html> 
